@@ -6,9 +6,7 @@ function App() {
   // 로컬스토리지에 값이 없을 경우 빈배열[] 로 설정하세요.
 
   // 로컬 스토리지에 값이 있으면 파싱해서 가져오고, 없으면 빈 배열로 설정
-  const [texts, setTexts] = useState(
-    localStorage.getItem("texts") === null ? localStorage.setItem("texts", JSON.stringify(texts)) : []
-  );
+  const [texts, setTexts] = useState(localStorage.getItem("texts") ? JSON.parse(localStorage.getItem("texts")) : []);
 
   useEffect(() => {
     // TODO: 상태가 변경될 때마다 로컬 스토리지에 저장. key 값은 texts 로 합시다.
